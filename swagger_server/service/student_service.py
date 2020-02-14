@@ -43,6 +43,10 @@ def get_student_by_id(student_id, subject):
     student = Student.from_dict(student)
     if not subject:
         return student
+    elif student.grades.get(subject) is not None:
+        return student
+    else:
+        return 'Not found', 404
 
 
 def delete_student(student_id):
