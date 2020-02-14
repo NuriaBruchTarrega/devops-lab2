@@ -52,6 +52,6 @@ def get_student_by_id(student_id, subject):
 def delete_student(student_id):
     student = student_db.get(doc_id=int(student_id))
     if not student:
-        return student
+        return 'Not found', 404
     student_db.remove(doc_ids=[int(student_id)])
     return student_id
