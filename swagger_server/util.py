@@ -100,10 +100,7 @@ def deserialize_model(data, klass):
     if not instance.swagger_types:
         return data
 
-    print(instance.swagger_types)
     for attr, attr_type in six.iteritems(instance.swagger_types):
-        print("attr", attr)
-        print("attr_type", attr_type)
         if data is not None \
                 and instance.attribute_map[attr] in data \
                 and isinstance(data, (list, dict)):
