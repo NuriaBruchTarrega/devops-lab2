@@ -11,7 +11,7 @@ paths:
     post:
       summary: "Add a new student"
       description: ""
-      operationId: "addStudent"
+      operationId: "add_student"
       consumes:
       - "application/json"
       - "application/xml"
@@ -26,20 +26,21 @@ paths:
         schema:
           $ref: "#/definitions/Student"
       responses:
-        200:
+        "200":
           description: "successful operation"
-          schema: 
+          schema:
             type: "integer"
             format: "int64"
-        409:
-          description: "already exists"
-        405:
+        "405":
           description: "Invalid input"
+        "409":
+          description: "already exists"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
   /student/{student_id}:
     get:
       summary: "Find student by ID"
       description: "Returns a single student"
-      operationId: "getStudentById"
+      operationId: "get_student_by_id"
       produces:
       - "application/xml"
       - "application/json"
@@ -56,18 +57,19 @@ paths:
         required: false
         type: "string"
       responses:
-        200:
+        "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Student"
-        400:
+        "400":
           description: "Invalid ID supplied"
-        404:
+        "404":
           description: "student not found"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
     delete:
       summary: "Delete a student by ID"
       description: "Deletes a single student"
-      operationId: "deleteStudent"
+      operationId: "delete_student"
       produces:
       - "application/xml"
       - "application/json" 
@@ -79,15 +81,15 @@ paths:
         type: "integer"
         format: "int64"
       responses:
-        200:
+        "200":
           description: "successful operation"
           schema:
             $ref: "#/definitions/Student"
-        400:
+        "400":
           description: "Invalid ID supplied"
-        404:
-          description: "student not found"  
-
+        "404":
+          description: "student not found"
+      x-swagger-router-controller: "swagger_server.controllers.default_controller"
 definitions:
   Student:
     type: "object"
