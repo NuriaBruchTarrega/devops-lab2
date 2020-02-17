@@ -59,9 +59,9 @@ def delete_student(student_id):
 
 def get_student_by_last_name(last_name):
     students = student_db.search(where('last_name') == last_name)
-    print(students)
+
     if len(students) == 0:
         return 404, "Not found"
     student = Student.from_dict(students[0])
-    print(student)
+
     return student
